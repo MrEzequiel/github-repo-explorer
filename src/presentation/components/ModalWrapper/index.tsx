@@ -25,7 +25,7 @@ export function ModalWrapper({ children, onClose }: IModalWrapperProps) {
       className="opacity-0 flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none animate-fade bg-black/70 p-4"
       onClick={handleClickBackdrop}
     >
-      <div className="relative w-full p-9 max-w-5xl my-6 mx-auto bg-gray-950 shadow-lg" ref={contentRef}>
+      <div className="relative w-full p-9 max-w-5xl my-6 mx-auto bg-gray-950 shadow-lg overflow-y-auto max-h-dvh" ref={contentRef}>
         {children}
       </div>
     </div>,
