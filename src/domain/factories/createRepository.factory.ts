@@ -12,6 +12,8 @@ export const CreateRepository = (dto: IRepositoryDTO): IRepository => {
     stargazerCount: dto.stargazerCount,
     topics: CreateTopic(dto.repositoryTopics),
     updatedAt: dto.updatedAt,
-    url: dto.url
+    url: dto.url,
+    issuesCount: dto.issues.totalCount,
+    watchersCount: dto.watchers.totalCount
   }
 }

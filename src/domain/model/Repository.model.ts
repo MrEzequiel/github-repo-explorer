@@ -38,10 +38,18 @@ export interface IRepositoryCore {
 
 export interface IRepository extends IRepositoryCore {
   topics: ITopic[]
+  watchersCount: number
+  issuesCount: number
 }
 
 export interface IRepositoryDTO extends IRepositoryCore {
   repositoryTopics: IPaginationDTO<ITopicDTO[]>
+  watchers: {
+    totalCount: number
+  }
+  issues: {
+    totalCount: number
+  }
 }
 
 export type ISearchRepositoriesDTO = {
