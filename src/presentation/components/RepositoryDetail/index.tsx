@@ -1,5 +1,6 @@
 import { IRepository } from "../../../domain/model/Repository.model";
 import { PullRequests } from "./PullRequests";
+import { Releases } from "./Releases";
 import { RepoCard } from "./RepoCard";
 import { UserCard } from "./UserCard";
 
@@ -19,6 +20,9 @@ export function RepositoryDetail({ repository }: IRepositoryDetailProps) {
       </div>
 
       <div className="flex flex-col gap-8 mt-6">
+        {repository?.releases?.length > 0 && (
+          <Releases releases={repository.releases} totalCount={repository.releasesCount} />
+        )}
         {repository?.pullRequests?.length > 0 &&
           <PullRequests
             pullRequests={repository.pullRequests}

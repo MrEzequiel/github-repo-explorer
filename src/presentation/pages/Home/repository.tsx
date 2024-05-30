@@ -41,12 +41,12 @@ export function Repository({ repository }: IRepositoryProps) {
 
         <div className="flex gap-4 flex-wrap mt-2">
           <div className="flex items-center gap-1">
-            <span className="text-sm font-bold">{repository.stargazerCount.toLocaleString('en')}</span>
             <span className="text-sm font">⭐</span>
+            <span className="text-sm font-bold">{repository.stargazerCount.toLocaleString('en')}</span>
           </div>
           <div className="flex items-center gap-1">
-            <span className="text-sm font-bold">{repository.forkCount.toLocaleString('en')}</span>
             <span className="text-sm font">🍴</span>
+            <span className="text-sm font-bold">{repository.forkCount.toLocaleString('en')}</span>
           </div>
         </div>
       </div>
