@@ -1,17 +1,26 @@
 import { IRepositorySearched } from "../../../domain/model/Repository.model";
+import { fetchRepositoryDetail } from "../../../features/repoDetail/thunks";
+import { useAppDispatch } from "../../../store";
 
 interface IRepositoryProps {
   repository: IRepositorySearched
 }
 
 export function Repository({ repository }: IRepositoryProps) {
+  const dispatch = useAppDispatch()
   const description = repository?.description &&
     repository?.description.length > 150 ?
     repository?.description.substring(0, 150) + "..." :
     repository?.description
 
+  const handleClickRepository = () => {
+    dispatch(
+      fetchRepositoryDetail({ ownerLogin: repository.ownerLogin, repositoryName: repository.name })
+    )
+  }
+
   return (
-    <li className="border-y border-x border-gray-400 p-4 flex gap-4 cursor-pointer hover:bg-gray-800 transition-colors hover:shadow-lg" onClick={console.log}>
+    <li className="border-y border-x border-gray-400 p-4 flex gap-4 cursor-pointer hover:bg-gray-800 transition-colors hover:shadow-lg" onClick={handleClickRepository}>
       <img
         className="w-24 h-24 object-cover"
         src={repository.ownerAvatarUrl}
