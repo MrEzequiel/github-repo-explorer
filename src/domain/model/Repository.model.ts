@@ -1,6 +1,7 @@
 import { DateTime, URL } from "../../types/semantic"
 import { ILanguage } from "./Language.model"
 import {  IPaginationDTO } from "./Pagination"
+import { IPullRequest, IPullRequestDTO } from "./PullRequest.model"
 import { IResponse } from "./Response.model"
 import { ITopic, ITopicDTO } from "./Topic.model"
 
@@ -42,10 +43,13 @@ export interface IRepository extends IRepositoryCore {
   topics: ITopic[]
   watchersCount: number
   issuesCount: number
+  pullRequests: IPullRequest[]
+  pullRequestCount: number
 }
 
 export interface IRepositoryDTO extends IRepositoryCore {
   repositoryTopics: IPaginationDTO<ITopicDTO[]>
+  pullRequests: IPaginationDTO<IPullRequestDTO[]>
   watchers: {
     totalCount: number
   }

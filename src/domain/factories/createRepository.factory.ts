@@ -1,4 +1,5 @@
 import { IRepository, IRepositoryDTO } from "../model/Repository.model";
+import { CreatePullRequests } from "./createPullRequests.factory";
 import { CreateTopic } from "./createTopic.factory";
 
 export const CreateRepository = (dto: IRepositoryDTO): IRepository => {
@@ -15,6 +16,8 @@ export const CreateRepository = (dto: IRepositoryDTO): IRepository => {
     url: dto.url,
     issuesCount: dto.issues.totalCount,
     watchersCount: dto.watchers.totalCount,
-    primaryLanguage: dto.primaryLanguage
+    primaryLanguage: dto.primaryLanguage,
+    pullRequests: CreatePullRequests(dto.pullRequests.edges),
+    pullRequestCount: dto.pullRequests.totalCount
   }
 }

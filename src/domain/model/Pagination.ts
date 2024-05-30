@@ -7,6 +7,7 @@ export interface IPageInfo {
 
 export interface IPaginationDTO<T = unknown> {
   edges: T
+  totalCount: number
   pageInfo: IPageInfo
 }
 

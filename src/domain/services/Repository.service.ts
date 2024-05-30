@@ -100,6 +100,20 @@ export class RepositoryService extends AxiosHttpRequest implements IRepositorySe
                   }
                 }
               }
+              pullRequests(first: 5, states: OPEN) {
+                totalCount
+                edges {
+                  node {
+                    author {
+                      login
+                    }
+                    title
+                    createdAt
+                    id
+                    url
+                  }
+                }
+              }
             }
           }`,
           variables: {
