@@ -1,10 +1,10 @@
 import { CreateSearchRepository } from "../factories/createSearchRepository.factory";
+import { IPaginationResponse } from "../model/Pagination";
 import { IRepository, IRepositorySearched } from "../model/Repository.model";
-import {RepositoryService} from '../services/Repository.service'
-import { IPagination } from "../model/Pagination";
+import { RepositoryService } from '../services/Repository.service'
 
 interface IRepoRepository {
-  searchRepositories(arg: { repositoryName: string, first: number, after?: string }): Promise<IPagination<IRepositorySearched[]>>
+  searchRepositories(arg: { repositoryName: string, first: number, after?: string }): Promise<IPaginationResponse<IRepositorySearched[]>>
   getRepository(arg: { ownerLogin: string, repositoryName: string }): Promise<IRepository>
 }
 

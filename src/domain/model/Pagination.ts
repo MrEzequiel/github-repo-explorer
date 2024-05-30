@@ -1,4 +1,4 @@
-export interface IPaginationInfo {
+export interface IPageInfo {
   endCursor?: string
   startCursor?: string
   hasNextPage: boolean
@@ -7,12 +7,15 @@ export interface IPaginationInfo {
 
 export interface IPaginationDTO<T = unknown> {
   edges: T
-  pageInfo: IPaginationInfo
+  pageInfo: IPageInfo
 }
 
-export interface IPagination<T = unknown> {
-  data: T
-  pagination: IPaginationInfo & {
-    size: number
-  }
+export interface IPaginationInfo extends IPageInfo {
+  size: number
 }
+
+export interface IPaginationResponse<T = unknown> {
+  data: T
+  pagination: IPaginationInfo
+}
+

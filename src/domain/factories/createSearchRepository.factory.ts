@@ -1,7 +1,7 @@
-import { IPagination } from "../model/Pagination";
+import { IPaginationResponse } from "../model/Pagination";
 import { IRepositorySearched, ISearchRepositoriesDTO } from "../model/Repository.model";
 
-export function CreateSearchRepository(dto: ISearchRepositoriesDTO): IPagination<IRepositorySearched[]> {
+export function CreateSearchRepository(dto: ISearchRepositoriesDTO): IPaginationResponse<IRepositorySearched[]> {
   const { pageInfo, repositoryCount, edges } = dto.search;
   return {
     data: edges.map(({ node }) => ({
