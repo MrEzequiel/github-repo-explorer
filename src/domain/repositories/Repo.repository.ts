@@ -1,3 +1,4 @@
+import { CreateRepository } from "../factories/createRepository.factory";
 import { CreateSearchRepository } from "../factories/createSearchRepository.factory";
 import { IPaginationResponse } from "../model/Pagination";
 import { IRepository, IRepositorySearched } from "../model/Repository.model";
@@ -22,7 +23,7 @@ export class RepoRepository implements IRepoRepository {
 
   getRepository: IRepoRepository['getRepository'] = async (params) => {
     const { data } = await this.repositoryService.getRepository(params.ownerLogin, params.repositoryName)
-    return data.repository
+    return CreateRepository(data.repository)
   }
 }
 

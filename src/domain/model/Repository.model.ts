@@ -1,8 +1,9 @@
 import { DateTime, URL } from "../../types/semantic"
 import {  IPaginationDTO } from "./Pagination"
 import { IResponse } from "./Response.model"
+import { ITopic, ITopicDTO } from "./Topic.model"
 
-export interface IRepositoryDTO {
+export interface IRepositorySearchedDTO {
   node: {
     description: string
     forkCount: number
@@ -22,7 +23,8 @@ export interface IRepositoryOwner {
   url: URL
 }
 
-export interface IRepository {
+
+export interface IRepositoryCore {
   description: string | null
   forkCount: number
   homepageUrl: URL
@@ -34,14 +36,22 @@ export interface IRepository {
   updatedAt: DateTime
 }
 
+export interface IRepository extends IRepositoryCore {
+  topics: ITopic[]
+}
+
+export interface IRepositoryDTO extends IRepositoryCore {
+  repositoryTopics: IPaginationDTO<ITopicDTO[]>
+}
+
 export type ISearchRepositoriesDTO = {
-  search: IPaginationDTO<IRepositoryDTO[]> & {
+  search: IPaginationDTO<IRepositorySearchedDTO[]> & {
     repositoryCount: number
   }
 }
 
 export type IGetRepositoryResponse = IResponse<{
-  repository: IRepository
+  repository: IRepositoryDTO
 }>
 
 export interface IRepositorySearched {

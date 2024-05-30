@@ -78,6 +78,17 @@ export class RepositoryService extends AxiosHttpRequest implements IRepositorySe
               updatedAt
               stargazerCount
               forkCount
+              repositoryTopics(first: 10) {
+                edges {
+                  node {
+                    topic {
+                      id
+                      name
+                    }
+                    id
+                  }
+                }
+              }
             }
           }`,
           variables: {
