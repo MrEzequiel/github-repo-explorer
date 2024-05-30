@@ -54,7 +54,7 @@ export function RepoCard({ repository }: IRepoCardProps) {
             <div>
               <p className="text-sm uppercase font-bold text-gray-500 mb-2">Webpage</p>
               <a
-                className="font-bold hover:underline hover:text-purple-400"
+                className="block font-bold hover:underline hover:text-purple-400 truncate"
                 href={repository.homepageUrl}
                 target="_blank"
                 rel="noreferrer"
