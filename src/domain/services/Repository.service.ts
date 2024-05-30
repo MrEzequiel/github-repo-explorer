@@ -114,6 +114,23 @@ export class RepositoryService extends AxiosHttpRequest implements IRepositorySe
                   }
                 }
               }
+              releases(first: 5) {
+                totalCount
+                edges {
+                  node {
+                    name
+                    url
+                    publishedAt
+                    tagName
+                    id
+                    author {
+                      name
+                      login
+                      avatarUrl
+                    }
+                  }
+                }
+              }
             }
           }`,
           variables: {
