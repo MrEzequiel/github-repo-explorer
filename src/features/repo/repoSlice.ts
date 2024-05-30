@@ -47,7 +47,6 @@ const repoSlice = createSlice({
         state.pageInfo = action.payload.pagination;
       })
       .addCase(fetchRepositories.rejected, (state, action: PayloadAction<unknown>) => {
-        console.log(action);
         state.loading = false;
         state.error = action.payload as string;
       });
