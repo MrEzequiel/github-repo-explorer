@@ -34,6 +34,7 @@ export class RepositoryService extends AxiosHttpRequest implements IRepositorySe
                     name
                     owner {
                       login
+                      avatarUrl
                     }
                     description
                     url

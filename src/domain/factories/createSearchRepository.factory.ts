@@ -10,7 +10,8 @@ export function CreateSearchRepository(dto: ISearchRepositoriesDTO): IPagination
       name: node.name,
       stargazerCount: node.stargazerCount,
       url: node.url,
-      ownerLogin: node.owner.login
+      ownerLogin: node.owner.login,
+      ownerAvatarUrl: node.owner.avatarUrl
     })),
     pagination: {
       hasNextPage: pageInfo.hasNextPage,

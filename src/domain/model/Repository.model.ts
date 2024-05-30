@@ -9,9 +9,10 @@ export interface IRepositoryDTO {
     name: string
     owner: {
       login: string
+      avatarUrl: URL
     }
     stargazerCount: number
-    url: string
+    url: URL
   }
 }
 
@@ -22,7 +23,7 @@ export interface IRepositoryOwner {
 }
 
 export interface IRepository {
-  description: string
+  description: string | null
   forkCount: number
   homepageUrl: URL
   url: URL
@@ -44,10 +45,11 @@ export type IGetRepositoryResponse = IResponse<{
 }>
 
 export interface IRepositorySearched {
-  description: string
+  description: string | null
   forkCount: number
   name: string
   stargazerCount: number
   url: string
   ownerLogin: string
+  ownerAvatarUrl: string
 }
