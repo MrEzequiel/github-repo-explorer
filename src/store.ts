@@ -1,10 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { repoReducer } from './features/repo/repoSlice';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+
+import { repoReducer } from './features/repo/repoSlice';
+import { repoDetailReducer } from './features/repoDetail/repoDetail.slice';
 
 export const store = configureStore({
   reducer: {
     repo: repoReducer,
+    repoDetail: repoDetailReducer
   },
 });
 

@@ -3,7 +3,6 @@ import { IRepositorySearched } from "../../domain/model/Repository.model";
 import { IPaginationResponse } from "../../domain/model/Pagination";
 import { fetchRepositories } from "./thunks";
 
-
 interface RepoState {
   repositories: null | IRepositorySearched[];
   loading: boolean;
