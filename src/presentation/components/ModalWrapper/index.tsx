@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 
 import useDisableScroll from "../../../hooks/useDisableScroll";
@@ -19,6 +19,18 @@ export function ModalWrapper({ children, onClose }: IModalWrapperProps) {
       onClose()
     }
   }
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' || event.key === 'Esc') {
+        onClose()
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [onClose])
 
   return createPortal(
     <div
