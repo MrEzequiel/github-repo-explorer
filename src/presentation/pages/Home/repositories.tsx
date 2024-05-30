@@ -1,8 +1,9 @@
 import { selectRepositoriesState } from "../../../features/repo/repoSlice"
 import { useAppSelector } from "../../../store"
-import { RepositoryError } from "../components/RepositoryError"
-import { RepositoryLoading } from "../components/RepositoryLoading"
+
 import { Repository } from "./repository"
+import { RepositoryError } from "../../components/RepositoryError"
+import { RepositoryLoading } from "../../components/RepositoryLoading"
 
 interface IRepositoriesProps {
   onLoadMore: () => void
