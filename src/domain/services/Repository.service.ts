@@ -84,6 +84,11 @@ export class RepositoryService extends AxiosHttpRequest implements IRepositorySe
               watchers {
                 totalCount
               }
+              primaryLanguage {
+                color
+                id
+                name
+              }
               repositoryTopics(first: 10) {
                 edges {
                   node {

@@ -1,4 +1,5 @@
 import { DateTime, URL } from "../../types/semantic"
+import { ILanguage } from "./Language.model"
 import {  IPaginationDTO } from "./Pagination"
 import { IResponse } from "./Response.model"
 import { ITopic, ITopicDTO } from "./Topic.model"
@@ -31,6 +32,7 @@ export interface IRepositoryCore {
   url: URL
   name: string
   owner: IRepositoryOwner
+  primaryLanguage: ILanguage | null
   stargazerCount: number
   createdAt: DateTime
   updatedAt: DateTime
