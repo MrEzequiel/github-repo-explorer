@@ -5,6 +5,15 @@ function formatDate(date: string) {
   return new Date(date).toLocaleDateString("en-US")
 }
 
+function WithSeparator({ children }: { children: React.ReactNode }) {
+  return (
+    <Fragment>
+      <hr className="my-4 border-gray-900" />
+      {children}
+    </Fragment>
+  )
+}
+
 interface IRepoCardProps {
   repository: IRepository
 }
@@ -41,9 +50,7 @@ export function RepoCard({ repository }: IRepoCardProps) {
         </div>
 
         {!!repository.homepageUrl && (
-          <>
-            <hr className="my-4 border-gray-900" />
-
+          <WithSeparator>
             <div>
               <p className="text-sm uppercase font-bold text-gray-500 mb-2">Webpage</p>
               <a
@@ -55,13 +62,11 @@ export function RepoCard({ repository }: IRepoCardProps) {
                 {repository.homepageUrl}
               </a>
             </div>
-          </>
+          </WithSeparator>
         )}
 
         {repository.topics.length > 0 && (
-          <>
-            <hr className="my-4 border-gray-900" />
-
+          <WithSeparator>
             <div>
               <p className="text-sm uppercase font-bold text-gray-500 mb-2">Topics</p>
               {repository.topics.map((topic) => (
@@ -73,7 +78,22 @@ export function RepoCard({ repository }: IRepoCardProps) {
                 </span>
               ))}
             </div>
-          </>
+          </WithSeparator>
+        )}
+
+        {!!repository.primaryLanguage && (
+          <WithSeparator>
+            <div>
+              <p className="text-sm uppercase font-bold text-gray-500 mb-2">Language</p>
+              <div className="flex items-center">
+                <span
+                  style={{ backgroundColor: repository.primaryLanguage.color }}
+                  className="w-2 h-2 rounded-full block"
+                />
+                <span className="ml-2">{repository.primaryLanguage.name}</span>
+              </div>
+            </div>
+          </WithSeparator>
         )}
       </div>
     </main>
