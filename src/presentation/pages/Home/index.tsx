@@ -6,6 +6,7 @@ import { resetRepositories, selectRepositoriesState } from "../../../features/re
 
 import { Repositories } from "./repositories"
 import { DEFAULT_PAGE_SIZE } from "./config"
+import { RepoModal } from "../../containers/RepoModal"
 
 export function Home() {
   const dispatch = useAppDispatch()
@@ -51,31 +52,35 @@ export function Home() {
   }
 
   return (
-    <main>
-      <header className="flex-1 max-w-screen-2xl px-9 mx-auto mt-12 mb-6">
-        <p className="font-bold uppercase text-gray-500">Github Repositories</p>
-        <h1 className="font-bold text-5xl mb-6 mt-2 text-purple-500">Github Explorer</h1>
-      </header>
+    <>
+      <main>
+        <header className="flex-1 max-w-screen-2xl px-9 mx-auto mt-12 mb-6">
+          <p className="font-bold uppercase text-gray-500">Github Repositories</p>
+          <h1 className="font-bold text-5xl mb-6 mt-2 text-purple-500">Github Explorer</h1>
+        </header>
 
-      <form className="flex items-center border-y border-gray-200/10 group focus-within:border-gray-100 transition-colors" onSubmit={handleSubmit}>
-        <p className="flex items-center sm:py-4 py-3 sm:pl-24 sm:px-8 px-3 gap-3 border-r border-gray-200/10 group-focus-within:border-gray-100 transition-colors text-gray-500">Search for a repository</p>
-        <input
-          className="sm:px-8 px-4 sm:py-4 py-3 flex-1 bg-transparent outline-none border-none peer"
-          value={searchValue}
-          onChange={handleSearch}
-          onKeyUp={handleKeyUp}
-          autoFocus
-        />
-        <button
-          className="sm:px-8 px-4 sm:py-4 py-3 h-full bg-purple-500 text-white transition-opacity disabled:opacity-80 disabled:cursor-not-allowed"
-          disabled={!searchValue || repositoriesLoading}
-          type="submit"
-        >
-          Search
-        </button>
-      </form>
+        <form className="flex items-center border-y border-gray-200/10 group focus-within:border-gray-100 transition-colors" onSubmit={handleSubmit}>
+          <p className="flex items-center sm:py-4 py-3 sm:pl-24 sm:px-8 px-3 gap-3 border-r border-gray-200/10 group-focus-within:border-gray-100 transition-colors text-gray-500">Search for a repository</p>
+          <input
+            className="sm:px-8 px-4 sm:py-4 py-3 flex-1 bg-transparent outline-none border-none peer"
+            value={searchValue}
+            onChange={handleSearch}
+            onKeyUp={handleKeyUp}
+            autoFocus
+          />
+          <button
+            className="sm:px-8 px-4 sm:py-4 py-3 h-full bg-purple-500 text-white transition-opacity disabled:opacity-80 disabled:cursor-not-allowed"
+            disabled={!searchValue || repositoriesLoading}
+            type="submit"
+          >
+            Search
+          </button>
+        </form>
 
-      <Repositories onLoadMore={handleLoadMore} />
-    </main>
+        <Repositories onLoadMore={handleLoadMore} />
+      </main>
+
+      <RepoModal />
+    </>
   )
 }
