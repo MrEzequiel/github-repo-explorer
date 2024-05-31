@@ -36,14 +36,14 @@ export function RepoCard({ repository }: IRepoCardProps) {
         <a className="text-3xl font-bold hover:underline hover:text-purple-400" href={repository.url} target="_blank" rel="noreferrer">{repository.name}</a>
         <p className="text-sm mt-2">{repository.description}</p>
 
-        <div className="flex gap-x-4 gap-y-2 mt-2 flex-wrap">
+        <div className="flex gap-x-4 gap-y-2 mt-2 flex-wrap sm:flex-row flex-col">
           {cardInfo.map(({ emoji, value, label }, index) => (
             <Fragment key={label}>
               <div title={label} className="flex items-center gap-1 flex-shrink-0" aria-label={label}>
                 {emoji} {value}
               </div>
               {index < cardInfo.length - 1 && (
-                <span className="text-gray-400">•</span>
+                <span className="text-gray-400 hidden sm:block">•</span>
               )}
             </Fragment>
           ))}
