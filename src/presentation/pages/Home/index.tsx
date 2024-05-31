@@ -60,12 +60,17 @@ export function Home() {
         </header>
 
         <form className="flex items-center border-y border-gray-200/10 group focus-within:border-gray-100 transition-colors" onSubmit={handleSubmit}>
-          <p className="flex items-center sm:py-4 py-3 sm:pl-24 sm:px-8 px-3 gap-3 border-r border-gray-200/10 group-focus-within:border-gray-100 transition-colors text-gray-500">Search for a repository</p>
+          <p
+            className="sm:flex items-center sm:py-4 py-3 sm:pl-24 sm:px-8 px-3 gap-3 border-r border-gray-200/10 group-focus-within:border-gray-100 transition-colors text-gray-500 hidden"
+          >
+            Search for a repository
+          </p>
           <input
-            className="sm:px-8 px-4 sm:py-4 py-3 flex-1 bg-transparent outline-none border-none peer"
+            className="sm:px-8 px-4 sm:py-4 py-3 flex-1 bg-transparent outline-none border-none peer placeholder:text-gray-500 sm:placeholder:text-transparent"
             value={searchValue}
             onChange={handleSearch}
             onKeyUp={handleKeyUp}
+            placeholder="Search for a repository"
             autoFocus
           />
           <button
